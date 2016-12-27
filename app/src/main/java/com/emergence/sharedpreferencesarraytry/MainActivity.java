@@ -17,28 +17,19 @@ public class MainActivity extends Activity {
     TextView input;
     TextView key;
     TextView output;
-    //Button listBtn;
     int array_index = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //input = (TextView) findViewById(R.id.input); // initialize input as input edit text box
-        //key = (TextView) findViewById(R.id.key); // initialize key as key edit text box
-        //listBtn = (Button) findViewById(R.id.list); // initialize listBtn as List of Entries Button
         sharedpreferences = getSharedPreferences( filename, Context.MODE_PRIVATE); // initialize shared preferences
-       // listBtn.setOnClickListener(new View.OnClickListener() {
-       //     public void onClick(View v) {
-       //         go_to_list();
-       //     }
-       // });
     }
 
     public void submit(View view){
         input = (TextView) findViewById(R.id.input); // initialize input as input edit text box
         String data = input.getText().toString(); // get string in input edit text box
-        if (data.equals("")) {
+        if (data.equals("")) { // doesn't allow user to submit empty text box entry by accident
             return;
         }
         SharedPreferences.Editor editor = sharedpreferences.edit(); // initialize editor
@@ -64,7 +55,7 @@ public class MainActivity extends Activity {
         editor.clear(); // clear all memory
         editor.commit(); // commit changes
         output.setText("All entries cleared!"); // display to notify user
-        array_index = 0;
+        array_index = 0; // reset array counter to 0 or else entries will now start at previous value
     }
 
     public void go_to_list(View view) {

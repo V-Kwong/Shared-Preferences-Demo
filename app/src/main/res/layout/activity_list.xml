@@ -5,9 +5,21 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Second page yo"
-        android:id="@+id/text2"
-        android:layout_centerVertical="true"
+        android:text="List of Entries"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:id="@+id/title"
+        android:layout_marginTop="20dp"
         android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title"
+        android:layout_marginTop="20dp"
+        android:textAlignment="center"
+        android:id="@+id/listbox"
+        android:layout_alignParentBottom="true"
+        android:textSize="18sp"/>
 
 </RelativeLayout>
