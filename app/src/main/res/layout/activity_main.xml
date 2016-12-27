@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_alignRight="@+id/input"
         android:layout_marginTop="30dp"
-        android:text="Submit"
+        android:text="@string/clear"
         android:onClick="submit"/>
 
     <EditText
@@ -46,17 +46,9 @@
         android:layout_alignRight="@+id/key"
         android:layout_centerVertical="true"
         android:layout_alignParentRight="true"
-        android:text="Retrieve"
+        android:text="@string/retrieve"
         android:onClick="retrieve"/>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/clearBtn"
-        android:text="Clear"
-        android:onClick="clear"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
 
     <TextView
         android:hint="Output"
@@ -70,4 +62,15 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="75dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/clearBtn"
+        android:text="@string/clear"
+        android:onClick="clear"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"/>
+
 </RelativeLayout>
