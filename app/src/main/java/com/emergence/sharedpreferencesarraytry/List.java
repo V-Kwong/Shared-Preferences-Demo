@@ -26,8 +26,6 @@ public class List extends Activity{
 
         while (sharedpreferences.contains(Integer.toString(i))) {
             list.append(Integer.toString(i + 1) + " " + sharedpreferences.getString(Integer.toString(i),"") + "\n");
-            //list.append(sharedpreferences.getString(Integer.toString(i), "") + "\n");
-            //list.append("\n");
             i++;
         }
 

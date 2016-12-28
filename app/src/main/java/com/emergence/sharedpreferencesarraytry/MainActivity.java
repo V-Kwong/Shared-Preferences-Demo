@@ -24,6 +24,13 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         sharedpreferences = getSharedPreferences( filename, Context.MODE_PRIVATE); // initialize shared preferences
+
+        int i = 0;
+        while (sharedpreferences.contains(Integer.toString(i))) {
+            i++;
+        }
+        array_index = i;
+
     }
 
     public void submit(View view){
