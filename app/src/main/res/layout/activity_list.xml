@@ -2,24 +2,37 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="List of Entries"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:id="@+id/title"
-        android:layout_marginTop="20dp"
-        android:layout_centerHorizontal="true" />
-
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/title"
-        android:layout_marginTop="20dp"
-        android:textAlignment="center"
-        android:id="@+id/listbox"
-        android:layout_alignParentBottom="true"
-        android:textSize="18sp"/>
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:weightSum="1">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="List of Entries"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:id="@+id/title"
+                android:layout_marginTop="20dp"
+                android:layout_centerHorizontal="true" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/title"
+                android:layout_marginTop="20dp"
+                android:textAlignment="center"
+                android:id="@+id/listbox"
+                android:layout_alignParentBottom="true"
+                android:textSize="18sp" />
+        </LinearLayout>
+    </ScrollView>
 
 </RelativeLayout>

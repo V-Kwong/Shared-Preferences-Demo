@@ -31,6 +31,15 @@ public class MainActivity extends Activity {
         }
         array_index = i;
 
+        /*int flag = 0;
+
+        if( flag == 0) {
+            SharedPreferences.Editor editor = sharedpreferences.edit(); // initialize editor
+            editor.putString( "array_index", "0"); // key is array index and data is input
+            editor.commit(); // commit changes
+            flag = 1;
+        }*/
+
     }
 
     public void submit(View view){
@@ -41,8 +50,14 @@ public class MainActivity extends Activity {
         }
         SharedPreferences.Editor editor = sharedpreferences.edit(); // initialize editor
         editor.putString( Integer.toString(array_index), data); // key is array index and data is input
+
+        //editor.putString( sharedpreferences.getString("array_index", ""), data); // key is array index and data is input
+
         editor.commit(); // commit changes
         input.setText(""); // clear input edit text box
+
+        //editor.putString("array_index", sharedpreferences.getString("array_index", "") + 1);
+
         array_index++; // increase array index
     }
 

@@ -25,10 +25,26 @@ public class List extends Activity{
         int i = 0;
 
         while (sharedpreferences.contains(Integer.toString(i))) {
-            list.append(Integer.toString(i + 1) + " " + sharedpreferences.getString(Integer.toString(i),"") + "\n");
+            list.append(Integer.toString(i + 1) + ".   " + sharedpreferences.getString(Integer.toString(i),"") + "\n");
             i++;
         }
 
+    }
+
+    public void delete(View view) {
+        SharedPreferences.Editor editor = sharedpreferences.edit();
+
+        int last_index = 0;
+
+        while(sharedpreferences.contains(Integer.toString(last_index))) {
+            last_index++;
+        }
+        last_index--;
+
+        // code to change delete data and replace it with the data from the last index
+
+        editor.remove(Integer.toString(last_index));
+        editor.commit();
     }
 
 }
