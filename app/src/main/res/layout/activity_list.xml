@@ -7,6 +7,7 @@
         android:layout_height="match_parent">
 
         <LinearLayout
+            android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -23,16 +24,8 @@
                 android:layout_marginTop="20dp"
                 android:layout_centerHorizontal="true" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/title"
-                android:layout_marginTop="20dp"
-                android:textAlignment="center"
-                android:id="@+id/listbox"
-                android:layout_alignParentBottom="true"
-                android:textSize="18sp" />
         </LinearLayout>
+
     </ScrollView>
 
 </RelativeLayout>
