@@ -18,7 +18,6 @@ public class MainActivity extends Activity {
     TextView input;
     TextView key;
     TextView output;
-    int array_index = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,42 +25,39 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         sharedpreferences = getSharedPreferences( filename, Context.MODE_PRIVATE); // initialize shared preferences
 
-        int i = 0;
-        while (sharedpreferences.contains(Integer.toString(i))) {
-            i++;
+        SharedPreferences.Editor editor = sharedpreferences.edit(); // initialize editor
+        if (!sharedpreferences.contains("array_index")) { // if array_index doesn't exist/start up of application, array_index's data is 1
+            editor.putString("array_index", "1");
+            editor.commit();
         }
-        array_index = i;
-
-        /*int flag = 0;
-
-        if( flag == 0) {
-            SharedPreferences.Editor editor = sharedpreferences.edit(); // initialize editor
-            editor.putString( "array_index", "0"); // key is array index and data is input
-            editor.commit(); // commit changes
-            flag = 1;
-        }*/
 
     }
 
     public void submit(View view){
+
+        SharedPreferences.Editor editor = sharedpreferences.edit(); // initialize editor
+        if (!(sharedpreferences.contains("array_index"))) { // if array_index doesn't exist/start up of application, array_index's data is 1
+            editor.putString("array_index", "1");
+            editor.commit();
+        }
+
         input = (TextView) findViewById(R.id.input); // initialize input as input edit text box
         String data = input.getText().toString(); // get string in input edit text box
         if (data.equals("")) { // doesn't allow user to submit empty text box entry by accident
             return;
         }
-        SharedPreferences.Editor editor = sharedpreferences.edit(); // initialize editor
-        editor.putString( Integer.toString(array_index), data); // key is array index and data is input
 
-        //editor.putString( sharedpreferences.getString("array_index", ""), data); // key is array index and data is input
-
+        editor.putString( sharedpreferences.getString("array_index", ""), data); // key is array_index's data and data is input
         editor.commit(); // commit changes
+
         input.setText(""); // clear input edit text box
 
-        //editor.putString("array_index", sharedpreferences.getString("array_index", "") + 1);
+        int index = Integer.parseInt(sharedpreferences.getString("array_index","")); // retrieve array_index's data
+        index++; // increment index variable
+        editor.putString("array_index", Integer.toString(index)); // use index variable to increment array_index's data
+        editor.commit(); // commit changes
 
-        array_index++; // increase array index
-
-        Toast.makeText(getApplicationContext(),"Entry #" + array_index + " submitted!", Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(),"Entry #" + Integer.toString(index - 1) + " submitted!", Toast.LENGTH_SHORT).show(); // notify user that entry has been submitted
 
     }
 
@@ -69,6 +65,7 @@ public class MainActivity extends Activity {
         key = (TextView) findViewById(R.id.key); // initialize key as key edit text box
         output = (TextView) findViewById(R.id.output); // initialize output as output text box
         String output_key = key.getText().toString(); // get string in output key edit text box
+        output_key = output_key.replaceAll("[^0-9]", "");; // gets rid of any non 0-9 characters in input
         if (sharedpreferences.contains(output_key)) { // print out data corresponding to key to output text box if it exists
             output.setText(sharedpreferences.getString(output_key, ""));
         }
@@ -80,8 +77,7 @@ public class MainActivity extends Activity {
         SharedPreferences.Editor editor = sharedpreferences.edit(); // initialize editor
         editor.clear(); // clear all memory
         editor.commit(); // commit changes
-        output.setText("All entries cleared!"); // display to notify user
-        array_index = 0; // reset array counter to 0 or else entries will now start at previous value
+        Toast.makeText(getApplicationContext(), "All entries cleared!", Toast.LENGTH_SHORT).show(); // display toast to notify user
     }
 
     public void go_to_list(View view) {

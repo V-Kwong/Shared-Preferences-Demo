@@ -22,10 +22,10 @@ public class List extends Activity{
         sharedpreferences = getSharedPreferences( filename, Context.MODE_PRIVATE); // initialize shared preferences
         list = (TextView) findViewById(R.id.listbox);
 
-        int i = 0;
+        int i = 1;
 
         while (sharedpreferences.contains(Integer.toString(i))) {
-            list.append(Integer.toString(i + 1) + ".   " + sharedpreferences.getString(Integer.toString(i),"") + "\n");
+            list.append(Integer.toString(i) + ".   " + sharedpreferences.getString(Integer.toString(i),"") + "\n");
             i++;
         }
 
