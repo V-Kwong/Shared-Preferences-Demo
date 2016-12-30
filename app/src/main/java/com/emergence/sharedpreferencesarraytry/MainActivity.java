@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
@@ -59,6 +60,9 @@ public class MainActivity extends Activity {
         //editor.putString("array_index", sharedpreferences.getString("array_index", "") + 1);
 
         array_index++; // increase array index
+
+        Toast.makeText(getApplicationContext(),"Entry #" + array_index + " submitted!", Toast.LENGTH_LONG).show();
+
     }
 
     public void retrieve(View view) {

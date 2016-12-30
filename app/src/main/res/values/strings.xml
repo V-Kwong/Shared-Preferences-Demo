@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">SharedPreferencesArrayTry</string>
     <string name="submit">Submit</string>
-    <string name="retrieve">Retrieve</string>
-    <string name="clear">Clear</string>
+    <string name="retrieve">Retrieve Entry</string>
+    <string name="clear">Clear All Entries</string>
     <string name="list">List of Entries</string>
 </resources>
