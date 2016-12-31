@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_alignRight="@+id/input"
         android:layout_marginTop="30dp"
-        android:text="@string/clear"
+        android:text="@string/submit"
         android:onClick="submit"/>
 
     <EditText
@@ -70,7 +70,17 @@
         android:text="@string/clear"
         android:onClick="clear"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
+        android:layout_alignParentLeft="true"
         android:layout_marginBottom="20dp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
+        android:text="@string/list"
+        android:id="@+id/list"
+        android:onClick="go_to_list"/>
 
 </RelativeLayout>
