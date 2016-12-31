@@ -82,4 +82,10 @@ public class MainActivity extends Activity {
         Intent intent = new Intent(this, List.class);
         startActivity(intent);
     }
+
+    public void go_to_settings(View view){
+        Intent intent = new Intent(this, Settings.class);
+        startActivity(intent);
+    }
+
 }
