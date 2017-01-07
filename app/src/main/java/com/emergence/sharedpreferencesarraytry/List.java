@@ -11,6 +11,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 public class List extends Activity{
 
@@ -32,6 +33,11 @@ public class List extends Activity{
             arrayList.add(sharedpreferences.getString(Integer.toString(i),""));
             i++;
         }
+
+        /*Map<String,?> all = sharedpreferences.getAll();
+        for (Map.Entry<String,?> entry : all.entrySet()) {
+            arrayList.add(entry.getValue().toString());
+        }*/
 
         final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, arrayList);
 
@@ -63,7 +69,7 @@ public class List extends Activity{
                     del_index++;
                 }
                 editor.remove(Integer.toString(last_index)); // delete last entry
-                editor.putString("array_index", Integer.toString(--last_index)); // update array_index
+                editor.putString("array_index", Integer.toString(last_index)); // update array_index
                 editor.commit(); // commit changes
 
                 arrayList.remove(itemPosition); // remove entry in array
